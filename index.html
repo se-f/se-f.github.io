@@ -32,64 +32,174 @@
     </style>
   </head>
   <body class="bg-white">
+    <!-- Header with responsive navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-      <nav class="container mx-auto px-10 py-5">
-        <div class="flex justify-between items-center align-center">
-          <a class="text-gray-500 px-10" href="#">Seif Eddine Gherir</a>
-          <ul class="flex items-center space-x-6 px-10">
-            <li>
-              <a href="#about" class="text-gray-700 hover:text-blue-500"
-                >About</a
+      <nav class="container mx-auto px-4 sm:px-6 lg:px-10 py-4">
+        <div class="relative flex items-center justify-between">
+          <!-- Logo/Name -->
+          <a
+            href="#"
+            class="text-xl font-medium text-gray-500 hover:text-gray-700 transition-colors"
+            onclick="closeMobileMenu()"
+          >
+            Seif Eddine Gherir
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button
+            onclick="toggleMobileMenu()"
+            type="button"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- Hamburger Icon -->
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex md:items-center md:space-x-8">
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-blue-500 transition-colors"
+              >About</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-700 hover:text-blue-500 transition-colors"
+              >Experience</a
+            >
+            <a
+              href="#education"
+              class="text-gray-700 hover:text-blue-500 transition-colors"
+              >Education</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-700 hover:text-blue-500 transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-700 hover:text-blue-500 transition-colors"
+              >Projects</a
+            >
+            <a href="#contact">
+              <button
+                class="px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
               >
-            </li>
-            <li>
-              <a href="#experience" class="text-gray-700 hover:text-blue-500"
-                >Experience</a
+                Contact
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a
+              href="#about"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors"
+              onclick="closeMobileMenu()"
+            >
+              About
+            </a>
+            <a
+              href="#experience"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors"
+              onclick="closeMobileMenu()"
+            >
+              Experience
+            </a>
+            <a
+              href="#education"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors"
+              onclick="closeMobileMenu()"
+            >
+              Education
+            </a>
+            <a
+              href="#skills"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors"
+              onclick="closeMobileMenu()"
+            >
+              Skills
+            </a>
+            <a
+              href="#projects"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors"
+              onclick="closeMobileMenu()"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              class="block px-3 py-2"
+              onclick="closeMobileMenu()"
+            >
+              <button
+                class="w-full px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
               >
-            </li>
-            <li>
-              <a href="#education" class="text-gray-700 hover:text-blue-500"
-                >Education</a
-              >
-            </li>
-            <li>
-              <a href="#skills" class="text-gray-700 hover:text-blue-500"
-                >Skills</a
-              >
-            </li>
-            <li>
-              <a href="#projects" class="text-gray-700 hover:text-blue-500"
-                >Projects</a
-              >
-            </li>
-            <li>
-              <a href="#contact" class="text-gray-700 hover:text-blue-500"
-                ><button
-                  class="px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
-                >
-                  Contact
-                </button></a
-              >
-            </li>
-          </ul>
+                Contact
+              </button>
+            </a>
+          </div>
         </div>
       </nav>
     </header>
 
+    <!-- Add this script tag after your header -->
+    <script>
+      function closeMobileMenu() {
+        document.getElementById("mobile-menu").classList.add("hidden");
+      }
+
+      function toggleMobileMenu() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      }
+
+      // Optional: Close menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburgerButton = document.querySelector(
+          '[aria-controls="mobile-menu"]'
+        );
+
+        if (
+          !mobileMenu.contains(event.target) &&
+          !hamburgerButton.contains(event.target)
+        ) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
+
     <main
-      class="container mx-auto px-[60px] flex items-center justify-center flex-col"
+      class="container mx-auto px-4 sm:px-6 lg:px-[60px] flex items-center justify-center flex-col"
     >
+      <!-- Hero Section -->
       <div
-        class="flex h-screen -mt-10 flex flex-row items-center w-10/12"
-        style="z-index: 1"
+        class="flex min-h-screen -mt-10 flex-col md:flex-row items-center w-full lg:w-10/12"
       >
-        <div class="mb-10 w-1/2 pr-10 bg-green-20">
+        <div class="mb-10 w-full md:w-1/2 pr-0 md:pr-10">
           <h1 class="text-l text-gray-600 font-bold">Hi! 👋 I am</h1>
           <div
-            class="text-7xl font-bold bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent my-7"
+            class="text-4xl sm:text-7xl font-bold bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent my-7"
           >
-            Seif Eddine <br />
-            Gherir
+            Seif Eddine <br />Gherir
           </div>
           <h1 class="text-xl text-gray-700 font-bold">
             Software Engineering Student
@@ -99,10 +209,10 @@
             DevOps, I'm currently seeking an internship for my final engineering
             project (PFE).
           </h2>
-          <div class="mt-6">
+          <div class="mt-6 flex flex-wrap gap-4">
             <a href="#contact">
               <button
-                class="px-4 py-2 mr-2 bg-black text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
+                class="px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
               >
                 Contact me
               </button>
@@ -117,726 +227,726 @@
                 Download CV
               </button>
             </a>
-
-            <div
-              class="absolute left-6 top-1/2 flex flex-col space-y-4 z-30 -mt-10 ml-5"
+          </div>
+          <!-- Social Links -->
+          <div class="flex md:hidden justify-center space-x-6 mt-6">
+            <a
+              href="https://www.linkedin.com/in/seifghr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-700 hover:text-blue-500"
             >
-              <a
-                href="https://www.linkedin.com/in/seifghr"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-700 hover:text-blue-500"
-              >
-                <i class="bi bi-linkedin text-2xl"></i>
-              </a>
-              <a
-                href="https://github.com/se-f"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-700 hover:text-blue-500"
-              >
-                <i class="bi bi-github text-2xl"></i>
-              </a>
-            </div>
+              <i class="bi bi-linkedin text-2xl"></i>
+            </a>
+            <a
+              href="https://github.com/se-f"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-700 hover:text-blue-500"
+            >
+              <i class="bi bi-github text-2xl"></i>
+            </a>
+          </div>
+          <!-- Desktop Social Links -->
+          <div
+            class="hidden md:flex absolute left-6 top-1/2 flex-col space-y-4 z-30 -mt-10 ml-5"
+          >
+            <a
+              href="https://www.linkedin.com/in/seifghr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-700 hover:text-blue-500"
+            >
+              <i class="bi bi-linkedin text-2xl"></i>
+            </a>
+            <a
+              href="https://github.com/se-f"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-700 hover:text-blue-500"
+            >
+              <i class="bi bi-github text-2xl"></i>
+            </a>
           </div>
         </div>
-        <div class="w-1/2 pl-10 flex flex-row-reverse bg-red">
-          <img src="/images/avatar.png" alt="avatar" />
+        <div class="w-full md:w-1/2 pl-0 md:pl-10 flex justify-center">
+          <img
+            src="/images/avatar.png"
+            alt="avatar"
+            class="max-w-full h-auto"
+          />
         </div>
       </div>
 
-      <section section id="about" class="pt-20 -mt-10 w-11/12">
-        <h2 class="text-5xl font-bold mb-10">About</h2>
-
+      <!-- About Section -->
+      <section id="about" class="pt-20 -mt-10 w-full lg:w-11/12">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-10">About</h2>
         <p class="text-gray-700 mb-10 mt-5">
           A third-year Software Engineering student and valedictorian at the
-          <b>Faculty of Sciences of Tunis</b>, with hands-on experience in web and
-          software development. <br/>
-          <br />I’ve participated in real innovative apps such as
-          Infiniteblocks.io, and created projects including a Twitter clone, and
-          a hotel reservation management app. My skills cover <b>full-stack
-          development </b> using the latest frameworks, as well as a strong
-          foundation in <b>Cloud Computing, DevOps, and blockchain</b>.
+          <b>Faculty of Sciences of Tunis</b>, with hands-on experience in web
+          and software development. <br /><br />
+          I've participated in real innovative apps such as Infiniteblocks.io,
+          and created projects including a Twitter clone, and a hotel
+          reservation management app. My skills cover
+          <b>full-stack development</b> using the latest frameworks, as well as
+          a strong foundation in <b>Cloud Computing, DevOps, and blockchain</b>.
         </p>
       </section>
 
-      <section section id="experience" class="pt-20 -mt-10 w-11/12">
-        <h2 class="text-5xl font-bold mb-10">Experience</h2>
-
-        <!-- component -->
+      <!-- Experience Section -->
+      <section id="experience" class="pt-20 -mt-10 w-full lg:w-11/12">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-10">Experience</h2>
         <div class="container mx-auto w-full h-full">
-          <div class="relative wrap overflow-hidden p-10 h-full">
+          <div class="relative wrap overflow-hidden p-4 sm:p-10 h-full">
+            <!-- Timeline line -->
             <div
-              class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border"
+              class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border hidden md:block"
               style="left: 50%"
             ></div>
 
-            <!-- left timeline -->
+            <!-- First Experience -->
             <div
-              class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
+              class="mb-8 flex flex-col md:flex-row-reverse justify-between items-center w-full left-timeline"
             >
-              <div class="order-1 w-5/12"></div>
+              <div class="order-1 w-full md:w-5/12"></div>
               <div
                 class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full"
               >
                 <h1 class="mx-auto text-white font-semibold text-lg"></h1>
               </div>
-              <div
-                class="order-1 rounded-lg w-5/12 px-6 py-4 rounded-2xl border-2 border-black p-7"
-              >
-                <div class="py-2 flex justify-center">
-                  <i class="bi bi-award text-gray-700 text-3xl text-center"></i>
+              <div class="order-1 w-full md:w-5/12 px-4 sm:px-6 py-4">
+                <div class="rounded-2xl border-2 border-black p-4 sm:p-7">
+                  <div class="py-2 flex justify-center">
+                    <i
+                      class="bi bi-award text-gray-700 text-3xl text-center"
+                    ></i>
+                  </div>
+                  <h1 class="mb-3 font-bold text-gray-800 text-xl">
+                    Part-time Software Engineer
+                  </h1>
+                  <h2 class="mb-3 font-bold text-gray-800 text-l">
+                    Infitnieblocks.io, June 2024 - Present
+                  </h2>
+                  <p
+                    class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
+                  >
+                    Created a leaderboard system designed to boost user
+                    engagement
+                    <br /><br />
+                    Added speech-to-text functionality within the website's
+                    Chatbot to enable users to interact more intuitively and
+                    improving the overall user experience
+                    <br /><br />
+                    Participated in the integration of Auth0 to manage user
+                    authentication flow and linking Metamask wallets to accounts
+                  </p>
                 </div>
-                <h1 class="mb-3 font-bold text-gray-800 text-xl">
-                  Part-time Software Engineer
-                </h1>
-                <h2 class="mb-3 font-bold text-gray-800 text-l">
-                  Infitnieblocks.io, June 2024 - Present
-                </h2>
-
-                <p
-                  class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
-                >
-                  Created a leaderboard system designed to boost user engagement
-                  <br /><br />
-                  Added speech-to-text functionality within the website’s
-                  Chatbot to enable users to interact more intuitively and
-                  improving the overall user experience
-                  <br /><br />
-                  Participated in the integration of Auth0 to manage user
-                  authentication flow and linking Metamask wallets to accounts
-                </p>
               </div>
             </div>
 
-            <!-- right timeline -->
+            <!-- Second Experience -->
             <div
-              class="mb-8 flex justify-between items-center w-full right-timeline"
+              class="mb-8 flex flex-col md:flex-row justify-between items-center w-full right-timeline"
             >
-              <div class="order-1 w-5/12"></div>
+              <div class="order-1 w-full md:w-5/12"></div>
               <div
                 class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full"
               >
                 <h1 class="mx-auto font-semibold text-lg text-white"></h1>
               </div>
-              <div
-                class="order-1 rounded-lg w-5/12 px-6 py-4 rounded-2xl border-2 border-black p-7"
-              >
-                <div class="py-2 flex justify-center">
-                  <i class="bi bi-award text-gray-700 text-3xl text-center"></i>
+              <div class="order-1 w-full md:w-5/12 px-4 sm:px-6 py-4">
+                <div class="rounded-2xl border-2 border-black p-4 sm:p-7">
+                  <div class="py-2 flex justify-center">
+                    <i
+                      class="bi bi-award text-gray-700 text-3xl text-center"
+                    ></i>
+                  </div>
+                  <h1 class="mb-3 font-bold text-gray-800 text-xl">
+                    Software Engineer Intern
+                  </h1>
+                  <h2 class="mb-3 font-bold text-gray-800 text-l">
+                    Talan Tunisia, July 2023 - August 2023
+                  </h2>
+                  <p
+                    class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
+                  >
+                    Contributed to the development of a web application in React
+                    and NestJS that guides users in purchasing and consuming
+                    food responsibly
+                    <br /><br />
+                    Improved responsible food purchasing habits by providing
+                    personalized recommendations using an AI model, resulting in
+                    a 25% reduction in food waste among users
+                  </p>
                 </div>
-                <h1 class="mb-3 font-bold text-gray-800 text-xl">
-                  Software Engineer Intern
-                </h1>
-                <h2 class="mb-3 font-bold text-gray-800 text-l">
-                  Talan Tunisia, July 2023 - August 2023
-                </h2>
-
-                <p
-                  class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
-                >
-                  Contributed to the development of a web application in React
-                  and NestJS that guides users in purchasing and consuming food
-                  responsibly<br /><br />
-                  Improved responsible food purchasing habits by providing
-                  personalized recommendations using an AI model, resulting in a
-                  25% reduction in food waste among users
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="education" class="pt-20 -mt-10 w-11/12">
-        <h2 class="text-5xl font-bold mb-20">Education</h2>
+      <section id="education" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-10 md:mb-20 text-center">
+          Education
+        </h2>
 
-        <ol class="sm:flex pb-10">
-          <li class="relative w-1/3 mb-6 sm:mb-0">
-            <div class="flex items-center">
-              <div
-                class="z-10 flex items-center justify-center w-6 h-6 bg-black rounded-full sm:ring-4 dark:ring-gray-900 shrink-0"
-              ></div>
-              <div
-                class="hidden sm:flex w-full bg-red-900 h-0.5 dark:bg-gray-400"
-              ></div>
-            </div>
-            <div
-              class="order-1 rounded-lg w-10/12 px-6 py-4 rounded-2xl border-2 border-gray-500 p-7 mt-4"
-            >
-              <div class="py-2 flex justify-center">
-                <i class="bi bi-backpack"></i>
+        <ol
+          class="relative flex flex-col md:flex-row md:gap-8 border-l md:border-l-0 border-gray-300"
+        >
+          <!-- Engineering Degree -->
+          <li class="w-full md:w-1/3 mb-12 md:mb-0">
+            <div class="flex flex-col md:items-center">
+              <!-- Timeline dot -->
+              <div class="absolute -left-3 md:static md:mb-4">
+                <div
+                  class="w-6 h-6 bg-black rounded-full flex items-center justify-center ring-4 ring-white"
+                ></div>
               </div>
-              <h1 class="mb-3 font-bold text-gray-800 text-xl">
-                Engineering Degree
-              </h1>
-              <h2 class="mb-3 font-semibold text-gray-800 text-l">
-                Faculty of Sciences Tunis,<br />
-                September 2022 - Present
-              </h2>
-
-              <p
-                class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
+              <!-- Card -->
+              <div
+                class="ml-6 md:ml-0 w-full p-4 md:p-6 border-2 border-gray-500 rounded-2xl bg-white hover:shadow-lg transition-shadow"
               >
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Software Development
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Cloud Computing
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  DevOps
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Artificial Intelligence
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Agile Methods
-                </span>
-              </p>
+                <div class="py-2 flex justify-center">
+                  <i class="bi bi-backpack text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Engineering Degree
+                </h3>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                  Faculty of Sciences Tunis<br />
+                  <span class="text-gray-600">September 2022 - Present</span>
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Software Development</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Cloud Computing</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >DevOps</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Artificial Intelligence</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Agile Methods</span
+                  >
+                </div>
+              </div>
             </div>
           </li>
-          <li class="relative w-1/3 mb-6 sm:mb-0">
-            <div class="flex items-center">
-              <div
-                class="z-10 flex items-center justify-center w-6 h-6 bg-black rounded-full sm:ring-4 dark:ring-gray-900 shrink-0"
-              ></div>
-              <div
-                class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"
-              ></div>
-            </div>
-            <div
-              class="order-1 rounded-lg w-10/12 px-6 py-4 rounded-2xl border-2 border-gray-500 p-7 mt-4"
-            >
-              <div class="py-2 flex justify-center">
-                <i class="bi bi-backpack"></i>
-              </div>
-              <h1 class="mb-3 font-bold text-gray-800 text-xl">
-                Integrated Preparatory Cycle
-              </h1>
-              <h2 class="mb-3 font-semibold text-gray-800 text-l">
-                Faculty of Sciences Tunis, <br />September 2020 - May 2022
-              </h2>
 
-              <p
-                class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
+          <!-- Preparatory Cycle -->
+          <li class="w-full md:w-1/3 mb-12 md:mb-0">
+            <div class="flex flex-col md:items-center">
+              <!-- Timeline dot -->
+              <div class="absolute -left-3 md:static md:mb-4">
+                <div
+                  class="w-6 h-6 bg-black rounded-full flex items-center justify-center ring-4 ring-white"
+                ></div>
+              </div>
+              <!-- Card -->
+              <div
+                class="ml-6 md:ml-0 w-full p-4 md:p-6 border-2 border-gray-500 rounded-2xl bg-white hover:shadow-lg transition-shadow"
               >
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Computer Science
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Mathematics
-                </span>
-                <span
-                  class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
-                >
-                  Physics
-                </span>
-              </p>
+                <div class="py-2 flex justify-center">
+                  <i class="bi bi-backpack text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Integrated Preparatory Cycle
+                </h3>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                  Faculty of Sciences Tunis<br />
+                  <span class="text-gray-600">September 2020 - May 2022</span>
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Computer Science</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Mathematics</span
+                  >
+                  <span
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Physics</span
+                  >
+                </div>
+              </div>
             </div>
           </li>
-          <li class="relative mb-6 w-1/3 sm:mb-0">
-            <div class="flex items-center">
+
+          <!-- Baccalaureate -->
+          <li class="w-full md:w-1/3">
+            <div class="flex flex-col md:items-center">
+              <!-- Timeline dot -->
+              <div class="absolute -left-3 md:static md:mb-4">
+                <div
+                  class="w-6 h-6 bg-black rounded-full flex items-center justify-center ring-4 ring-white"
+                ></div>
+              </div>
+              <!-- Card -->
               <div
-                class="z-10 flex items-center justify-center w-6 h-6 bg-black rounded-full sm:ring-4 dark:ring-gray-900 shrink-0"
-              ></div>
-              <div
-                class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"
-              ></div>
-            </div>
-            <div class="mt-3 sm:pe-8">
-              <div
-                class="order-1 rounded-lg w-10/12 px-6 py-4 rounded-2xl border-2 border-gray-500 p-7 mt-4"
+                class="ml-6 md:ml-0 w-full p-4 md:p-6 border-2 border-gray-500 rounded-2xl bg-white hover:shadow-lg transition-shadow"
               >
-                <div class="py-2 flex justify-center"></div>
-                <h1 class="mb-3 font-bold text-gray-800 text-xl">
+                <div class="py-2 flex justify-center">
+                  <i class="bi bi-backpack text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
                   Baccalaureate Degree
-                </h1>
-                <h2 class="mb-3 font-bold text-gray-800 text-l">
-                  Pioneer High School of Hammam-lif, <br />July 2020
-                </h2>
-
-                <p
-                  class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100"
-                >
+                </h3>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">
+                  Pioneer High School of Hammam-lif<br />
+                  <span class="text-gray-600">July 2020</span>
+                </h4>
+                <div class="flex flex-wrap gap-2">
                   <span
-                    class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Computer Science</span
                   >
-                    Computer Science
-                  </span>
                   <span
-                    class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Mathematics</span
                   >
-                    Mathematics
-                  </span>
                   <span
-                    class="inline-flex items-center px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                    class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition"
+                    >Physics</span
                   >
-                    Physics
-                  </span>
-                </p>
+                </div>
               </div>
             </div>
           </li>
         </ol>
       </section>
 
-      <section id="skills" class="pt-20 -mt-10 w-11/12">
-        <h2 class="text-5xl font-bold mb-10">Skills</h2>
-        <div class="flex flex-row justify-center flex-wrap">
-          <div
-            class="rounded-[16px] border-[2px] border-gray-500 p-7 mx-2 w-4/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">
-              Web Development Frameworks
-            </h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-nextjs-original-wordmark colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Next.JS
-              </div>
+      <section id="skills" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-10 text-center">Skills</h2>
 
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-tailwindcss-original colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >TailwindCSS
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-react-original colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >React
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-angularjs-plain colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Angular
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-html5-plain-wordmark colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >HTML5
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-css3-plain-wordmark colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >CSS3
+        <!-- Main Skills Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Web Development -->
+          <div class="col-span-1 lg:col-span-2">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Web Development Frameworks
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-nextjs-original-wordmark colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Next.JS</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-tailwindcss-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">TailwindCSS</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-react-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">React</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-angularjs-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Angular</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-html5-plain-wordmark colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">HTML5</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-css3-plain-wordmark colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">CSS3</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div
-            class="rounded-[16px] border-[2px] border-gray-500 p-7 mx-2 w-5/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">
-              Programming Languages and Frameworks
-            </h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-spring-original colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Spring Boot
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg "
-                  style="height: 4rem"
-                />
-
-                Java
-              </div>
-              <div class="m-4 flex flex-col">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                  style="height: 4rem"
-                />
-                Python
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-typescript-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Typescript
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-javascript-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Javascript
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-cplusplus-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >C++
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-c-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >C
+          <!-- Programming Languages -->
+          <div class="col-span-1 lg:col-span-2">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Programming Languages and Frameworks
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-spring-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Spring Boot</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                    class="w-12 h-12 md:w-16 md:h-16 mb-2"
+                    alt="Java"
+                  />
+                  <span class="text-gray-700 text-sm">Java</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                    class="w-12 h-12 md:w-16 md:h-16 mb-2"
+                    alt="Python"
+                  />
+                  <span class="text-gray-700 text-sm">Python</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-typescript-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">TypeScript</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-javascript-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-cplusplus-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">C++</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-c-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">C</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div
-            class="rounded-[16px] border-[2px] border-gray-500 p-7 mx-2 w-4/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">DevOps</h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-git-plain colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Git
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-github-original colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Github
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-docker-plain colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Docker
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-kubernetes-plain colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Kubernetes
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-jenkins-line my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >Jenkins
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-sonarqube-original colored my-1"
-                  style="font-size: 3.2rem"
-                ></i
-                >SonarQube
+          <!-- DevOps -->
+          <div class="col-span-1 lg:col-span-2">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                DevOps
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-git-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Git</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-github-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Github</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-docker-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Docker</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-kubernetes-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Kubernetes</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i class="devicon-jenkins-line text-4xl md:text-5xl mb-2"></i>
+                  <span class="text-gray-700 text-sm">Jenkins</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-sonarqube-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">SonarQube</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex flex-row">
-          <div
-            class="rounded-2xl border-2 border-gray-500 p-7 mx-2 w-3/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">Cloud Computing</h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-amazonwebservices-plain-wordmark colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Amazon Web <br />Services
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
-                  style="height: 4rem"
-                />
-                Google Cloud <br />
-                Platform
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
-                  style="height: 4rem"
-                />
-                Microsoft Azure
+          <!-- Cloud Computing -->
+          <div class="col-span-1">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7 h-full">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Cloud Computing
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-amazonwebservices-plain-wordmark colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm text-center"
+                    >Amazon Web Services</span
+                  >
+                </div>
+                <div class="flex flex-col items-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+                    class="w-12 h-12 md:w-16 md:h-16 mb-2"
+                    alt="GCP"
+                  />
+                  <span class="text-gray-700 text-sm text-center"
+                    >Google Cloud Platform</span
+                  >
+                </div>
+                <div class="flex flex-col items-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
+                    class="w-12 h-12 md:w-16 md:h-16 mb-2"
+                    alt="Azure"
+                  />
+                  <span class="text-gray-700 text-sm text-center"
+                    >Microsoft Azure</span
+                  >
+                </div>
               </div>
             </div>
           </div>
-          <div
-            class="rounded-2xl border-2 border-gray-500 p-7 mx-2 w-3/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">Big Data</h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-hadoop-plain my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Hadoop
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-apachespark-original colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Spark
-              </div>
 
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-mongodb-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >MongoDB
+          <!-- Big Data -->
+          <div class="col-span-1">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7 h-full">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Big Data
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i class="devicon-hadoop-plain text-4xl md:text-5xl mb-2"></i>
+                  <span class="text-gray-700 text-sm">Hadoop</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-apachespark-original colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Spark</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-mongodb-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">MongoDB</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex flex-row">
-          <div
-            class="rounded-2xl border-2 border-gray-500 p-7 mx-2 w-3/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">Software Testing</h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-junit-plain-wordmark colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >JUnit
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <img src="/images/mockito.png" style="height: 4rem" />
-                Mockito
-              </div>
-
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-postman-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Postman
+          <!-- Software Testing -->
+          <div class="col-span-1">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7 h-full">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Software Testing
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-junit-plain-wordmark colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">JUnit</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img
+                    src="/images/mockito.png"
+                    class="w-12 h-auto md:w-16 md:h-auto mb-2"
+                    alt="Mockito"
+                  />
+                  <span class="text-gray-700 text-sm">Mockito</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-postman-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Postman</span>
+                </div>
               </div>
             </div>
           </div>
-          <div
-            class="rounded-2xl border-2 border-gray-500 p-7 mx-2 w-3/6 text-center my-4"
-          >
-            <h1 class="font-bold text-xl text-gray-800">Project Tracking</h1>
-            <div
-              class="flex flex-row flex-wrap justify-center text-gray-700 px-4"
-            >
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-jira-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Jira
-              </div>
-              <div class="m-4 flex flex-col">
-                <i
-                  class="devicon-trello-plain colored my-1"
-                  style="font-size: 3.4rem"
-                ></i
-                >Trello
+
+          <!-- Project Tracking -->
+          <div class="col-span-1">
+            <div class="rounded-2xl border-2 border-gray-500 p-4 md:p-7 h-full">
+              <h3 class="font-bold text-xl text-gray-800 mb-6 text-center">
+                Project Tracking
+              </h3>
+              <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-jira-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Jira</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <i
+                    class="devicon-trello-plain colored text-4xl md:text-5xl mb-2"
+                  ></i>
+                  <span class="text-gray-700 text-sm">Trello</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="pt-20 -mt-10 w-11/12">
-        <h2 class="text-5xl font-bold mb-20">Projects</h2>
-        <div class="flex flex-row">
+      <section
+        id="projects"
+        class="pt-16 md:pt-20 px-4 md:px-8 w-full max-w-7xl mx-auto"
+      >
+        <h2 class="text-3xl md:text-5xl font-bold mb-10 md:mb-20">Projects</h2>
+
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+          <!-- Hotel Project Card -->
           <div
-            class="rounded-2xl border-2 border-gray-500 py-7 px-2 mx-2 w-3/6 text-center -mt-10"
+            class="w-full md:w-1/2 rounded-2xl border-2 border-gray-500 p-4 md:p-7"
           >
-            <div
-              class="flex flex-col flex-wrap justify-center align-center text-gray-700 px-8"
-            >
-              <img
-                src="/images/hotel.jpg"
-                style="height: 15rem; width: 90%"
-                class="mx-auto"
-              />
-              <h1 class="font-bold text-2xl text-gray-800 my-2">
+            <div class="flex flex-col h-full">
+              <div class="relative w-full h-48 md:h-60 mb-4">
+                <img
+                  src="/images/hotel.jpg"
+                  alt="Hotel Reservation App"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+
+              <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-3">
                 Hotel Reservation Management App
-              </h1>
-              <p
-                class="text-sm leading-snug tracking-wide text-gray-900 text-justify my-2 mb-4"
-              >
+              </h3>
+
+              <p class="text-sm md:text-base text-gray-900 mb-6 flex-grow">
                 Built an app for room browsing and booking, with admin features
                 for managing room details, booking statuses, and user accounts.
               </p>
-              <div class="flex flex-row w-full flex-wrap">
+
+              <div class="flex flex-wrap gap-2 mb-6">
                 <span
-                  class="inline-flex items-center mr-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Spring Boot
                 </span>
                 <span
-                  class="inline-flex items-center flex-no-wrap mx-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Spring Web MVC
                 </span>
                 <span
-                  class="inline-flex items-center mx-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Spring Data
                 </span>
                 <span
-                  class="inline-flex items-center mr-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Spring Security
                 </span>
-
                 <span
-                  class="inline-flex items-center mx-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   React
                 </span>
-
                 <span
-                  class="inline-flex items-center ml-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   MySQL
                 </span>
               </div>
+
               <a
                 href="https://github.com/se-f/reservationJEE"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="mt-auto"
               >
                 <button
-                  class="flex flex-row justify-center items-center px-4 mx-auto mt-2 py-2 w-5/6 text-white border border-black rounded-xl bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 transition-colors"
+                  class="w-full md:w-5/6 mx-auto flex items-center justify-center px-4 py-2 text-white bg-black hover:bg-gray-800 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                 >
-                  <i class="devicon-github-original mr-4 text-xl"></i>Check it
-                  out on Github
+                  <i class="devicon-github-original mr-4 text-xl"></i>
+                  Check it out on Github
                 </button>
               </a>
             </div>
           </div>
+
+          <!-- Twitter Clone Card -->
           <div
-            class="rounded-2xl border-2 border-gray-500 py-7 px-2 mx-2 w-3/6 text-center -mt-10"
+            class="w-full md:w-1/2 rounded-2xl border-2 border-gray-500 p-4 md:p-7"
           >
-            <div
-              class="flex flex-col flex-wrap justify-center text-gray-700 px-8"
-            >
-              <img
-                src="/images/social-media.png"
-                style="height: 15rem; width: 70%"
-                class="mx-auto"
-              />
-              <h1 class="font-bold text-2xl text-gray-800 my-2">
+            <div class="flex flex-col h-full">
+              <div class="relative w-full h-48 md:h-60 mb-4">
+                <img
+                  src="/images/social-media.png"
+                  alt="Twitter Clone"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+
+              <h3 class="font-bold text-xl md:text-2xl text-gray-800 mb-3">
                 Twitter Clone
-              </h1>
-              <p
-                class="text-sm leading-snug tracking-wide text-gray-900 text-justify my-2 mb-4"
-              >
+              </h3>
+
+              <p class="text-sm md:text-base text-gray-900 mb-6 flex-grow">
                 Created a Twitter clone where users can create a profile page,
                 post tweets and engage with content by liking and commenting on
                 posts.
               </p>
-              <div class="flex flex-row w-full flex-wrap">
+
+              <div class="flex flex-wrap gap-2 mb-6">
                 <span
-                  class="inline-flex items-center mr-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Next.JS
                 </span>
                 <span
-                  class="inline-flex items-center flex-no-wrap mx-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   TailwindCSS
                 </span>
                 <span
-                  class="inline-flex items-center mx-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   Prisma
                 </span>
                 <span
-                  class="inline-flex items-center mr-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   MongoDB
                 </span>
-
                 <span
-                  class="inline-flex items-center mr-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   NextAuth
                 </span>
-
                 <span
-                  class="inline-flex items-center ml-1 px-3 py-1 text-sm my-1 font-medium rounded-xl hover:bg-gray-100 transition duration-300 border-2 border-gray-500 text-gray-600"
+                  class="px-3 py-1 text-sm font-medium rounded-xl border-2 border-gray-500 text-gray-600 hover:bg-gray-100 transition duration-300"
                 >
                   MySQL
                 </span>
               </div>
+
               <a
                 href="https://github.com/se-f/trend7"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="mt-auto"
               >
                 <button
-                  class="flex flex-row justify-center items-center px-4 mx-auto mt-2 py-2 w-5/6 text-white border border-black rounded-xl bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 transition-colors"
+                  class="w-full md:w-5/6 mx-auto flex items-center justify-center px-4 py-2 text-white bg-black hover:bg-gray-800 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                 >
-                  <i class="devicon-github-original mr-4 text-xl"></i>Check it
-                  out on Github
+                  <i class="devicon-github-original mr-4 text-xl"></i>
+                  Check it out on Github
                 </button>
               </a>
             </div>
